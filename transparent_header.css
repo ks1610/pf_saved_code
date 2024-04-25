@@ -1,0 +1,10 @@
+.header-wrapper {
+  position: absolute !important;
+  width: 100% !important;
+  background: transparent !important;
+  color: black !important;
+}
+
+.page-width {
+  max-width: 100% !important;
+}
