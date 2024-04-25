@@ -1,0 +1,15 @@
+/*style product quantity button*/
+[data-pf-type="ProductQuantity"] {
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+[data-pf-type="QuantityButton"] {
+  background-color: transparent !important;
+  color: black !important;
+}
+
+[data-pf-type="ProductQuantity"] input {
+  border: none !important;
+  background-color: transparent !important;
+}
