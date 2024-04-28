@@ -1,38 +1,38 @@
 <html>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>   
-    <!-- PAGEFLY CART HELPER - DO NOT DELETE -->
-    <script>
-    try {
-        setTimeout(function () {
-            window.__pagefly_helper_store__ &&
-            window.__pagefly_helper_store__.subscribe(function (res) {
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>   
+<!-- PAGEFLY CART HELPER - DO NOT DELETE -->
+<script>
+try {
+    setTimeout(function () {
+        window.__pagefly_helper_store__ &&
+        window.__pagefly_helper_store__.subscribe(function (res) {
             
-            const cartItems = document.querySelector('cart-items');
-            const cartIcon = document.querySelector('#cart-icon');
-            const cartIconBubble = document.querySelector('#cart-icon-bubble');
+        const cartItems = document.querySelector('cart-items');
+        const cartIcon = document.querySelector('#cart-icon');
+        const cartIconBubble = document.querySelector('#cart-icon-bubble');
             
-                $.getJSON('/cart?view=json').then(cart => {
-                    if (cartItems) {
-                        $.getJSON('/?sections=cart-drawer').then(sections => {
-                            if(cartIconBubble){
-                                const cartBubbleCountInnerHTML = <div class="header__cart-count absolute bg-theme-text text-theme-bg text-center">
-                                <span aria-hidden="true">${cart.item_count}</span>
-                                <span class="visually-hidden">${cart.item_count} items</span>
-                                </div>
-                                cartIconBubble.innerHTML = cartBubbleCountInnerHTML
-                            }
-                            const drawerInnerHTML = new DOMParser().parseFromString(sections['cart-drawer'], 'text/html');
-                            const updatedDrawerHTML = drawerInnerHTML.querySelector('cart-drawer').innerHTML;
-                            const currentDrawerEl = document.querySelector('cart-drawer');
-                            currentDrawerEl.innerHTML = updatedDrawerHTML;
-                        })
-                        .then(e => cartIcon.click())
-                    }
-                })
-            });
-        }, 2500);
-    } catch (e) {
-    console.warn(e);
-    }
-    </script>
+            $.getJSON('/cart?view=json').then(cart => {
+                if (cartItems) {
+                    $.getJSON('/?sections=cart-drawer').then(sections => {
+                        if(cartIconBubble){
+                            const cartBubbleCountInnerHTML = <div class="header__cart-count absolute bg-theme-text text-theme-bg text-center">
+                            <span aria-hidden="true">${cart.item_count}</span>
+                            <span class="visually-hidden">${cart.item_count} items</span>
+                            </div>
+                            cartIconBubble.innerHTML = cartBubbleCountInnerHTML
+                        }
+                        const drawerInnerHTML = new DOMParser().parseFromString(sections['cart-drawer'], 'text/html');
+                        const updatedDrawerHTML = drawerInnerHTML.querySelector('cart-drawer').innerHTML;
+                        const currentDrawerEl = document.querySelector('cart-drawer');
+                        currentDrawerEl.innerHTML = updatedDrawerHTML;
+                    })
+                    .then(e => cartIcon.click())
+                }
+            })
+        });
+    }, 2500);
+} catch (e) {
+console.warn(e);
+}
+</script>
 </html>
