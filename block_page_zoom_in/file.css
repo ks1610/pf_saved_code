@@ -1,0 +1,32 @@
+
+  /* Disable pinch zooming */
+  html,
+  body {
+    touch-action: manipulation;
+  }
+
+  /* Disable mouse wheel zooming */
+  html {
+  /* For Firefox */
+    overflow: -moz-scrollbars-none;
+    zoom: reset;
+  }
+
+  /* For IE, Edge */
+  body {
+    -ms-content-zooming: none;
+    -ms-touch-action: manipulation;
+  }
+
+  /* For Chrome, Safari, and Opera */
+  body {
+    overscroll-behavior-y: none;
+    overscroll-behavior-x: none;
+    max-height: 100vh;
+  }
+
+
+  /*change color of "view more" button*/
+  .pf-read-more {
+    color: black;
+  }
