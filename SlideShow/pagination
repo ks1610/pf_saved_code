@@ -1,0 +1,29 @@
+/* pagination 1 */
+
+.pagination-style-1 button {
+border: 2px solid #f40101 !important;
+}
+
+.pagination-style-1 button:before {
+background: #ad3a3a !important;
+}
+
+/* pagination 2 */
+
+.pagination-style-2 button {
+border: 2px solid #f40101 !important;
+}
+
+.pagination-style-2 button:before {
+background: #ad3a3a !important;
+}
+
+/* pagination 3 */
+
+.pagination-style-3 button {
+border: 2px solid #f40101 !important;
+}
+
+.pagination-style-3 button:before {
+background: #ad3a3a !important;
+}
