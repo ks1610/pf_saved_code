@@ -5,7 +5,7 @@ const interval = setInterval(() => {
   if (append_test) {
     clearInterval(interval)
     //add block element to PF and add id name
-    document.querySelector('.block_id').append(append_test);
+    document.querySelector('#block_id').append(append_test);
   }
 }, 10)
 setTimeout(() => {
