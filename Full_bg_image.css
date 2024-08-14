@@ -1,3 +1,4 @@
 .bgimage{
     background-size: 100% 100%; /*add the code to section > styling > css*/
+    height: 100vh;
 }
