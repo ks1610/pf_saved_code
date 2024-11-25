@@ -1,0 +1,5 @@
+.pf-custom a {
+text-decoration: underline;
+text-decoration-thickness: 1px;
+text-decoration-color: red;
+}
