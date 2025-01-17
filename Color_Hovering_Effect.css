@@ -1,0 +1,285 @@
+/*Manual:
+They can do that by following steps:
+- Step 1: set a class for the column containing the image, like this: https://monosnap.com/direct/85UXwB0Ik7wp39AVvmlxJsZDFKZadx
+-Step 2: Add this code, note to give different names to the columns if you want the displayed content to be different:
+https://monosnap.com/direct/GMmBS2prJoFnQmC1pEIc4gEMeqiXv1
+If you want the content and color of the images to be the same, just set the class with the same name. If you want them to be different, set the class with different names and add the code multiple times corresponding to the class name.
+*/
+
+
+/*For the 1st image*/
+.hover-effect-1 {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.hover-effect-1::before {
+  content: "Your own content in here";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: white;
+  background-color: rgb(4, 4, 4);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 16px;
+}
+
+
+.hover-effect-1:hover::before {
+  opacity: 1;
+}
+
+/*For the 2nd image*/
+.hover-effect-2 {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.hover-effect-2::before {
+  content: "This is first content";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: white;
+  background-color: rgb(227, 210, 29);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 16px;
+}
+
+.hover-effect-2:hover::before {
+  opacity: 1;
+}
+
+
+/*For the 3rd image*/
+.hover-effect-3 {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.hover-effect-3::before {
+  content: "This is first content";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: white;
+  background-color: rgb(240, 239, 233);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 16px;
+}
+
+.hover-effect-3:hover::before {
+  opacity: 1;
+}
+
+
+/*For the 4st image*/
+.hover-effect-4 {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.hover-effect-4::before {
+  content: "This is first content";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: white;
+  background-color: rgb(227, 82, 29);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 16px;
+}
+
+.hover-effect-4:hover::before {
+  opacity: 1;
+}
+
+
+/*For the 5st image*/
+.hover-effect-5 {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.hover-effect-5::before {
+  content: "This is first content";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: white;
+  background-color: rgb(197, 234, 119);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 16px;
+}
+
+.hover-effect-5:hover::before {
+  opacity: 1;
+}
+
+
+/*For the 6st image*/
+.hover-effect-6 {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.hover-effect-6::before {
+  content: "This is first content";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: white;
+  background-color: rgb(128, 130, 124);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 16px;
+}
+
+.hover-effect-6:hover::before {
+  opacity: 1;
+}
+
+
+/*For the 7st image*/
+.hover-effect-7 {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.hover-effect-7::before {
+  content: "This is first content";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: white;
+  background-color: rgb(236, 239, 231);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 16px;
+}
+
+.hover-effect-7:hover::before {
+  opacity: 1;
+}
+
+/*For the 8st image*/
+.hover-effect-8 {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.hover-effect-8::before {
+  content: "This is first content";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: white;
+  background-color: rgb(236, 239, 231);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 16px;
+}
+
+.hover-effect-8:hover::before {
+  opacity: 1;
+}
+
+
+/*For the 9st image*/
+.hover-effect-9 {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.hover-effect-9::before {
+  content: "This is first content";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: white;
+  background-color: rgb(236, 239, 231);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 16px;
+}
+
+.hover-effect-9:hover::before {
+  opacity: 1;
+}
