@@ -1,0 +1,24 @@
+/* add the pf-sticky class to the HTML class of the section*/
+
+/*For sticky section*/
+.pf-sticky {
+/*position: sticky !important;*/
+z-index: 1000 !important;
+position: fixed !important;
+bottom: 0 !important;
+transition: transform 0.3s ease-in-out;
+/* Smooth transition */
+}
+
+/*Hide the sticky section*/
+.pf-sticky {
+transform: translateY(100%);
+}
+
+body {
+overflow: visible !important;
+}
+
+.sticky-visible {
+transform: translateY(0);
+}
