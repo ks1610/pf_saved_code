@@ -1,0 +1,7 @@
+#MainContent [data-pf-type="ProductBox"]:not(form) {
+  display: none;
+}
+
+#MainContent [data-pf-type="ProductBox"]:has(form) {
+  display: block;
+}
