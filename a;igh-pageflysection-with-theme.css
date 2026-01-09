@@ -1,0 +1,19 @@
+@media screen and (min-width: 1440px) {
+	#pf-section {
+		padding: 0px 13%;
+	}
+}
+
+/* ===== Desktop (1200px – 1439px) ===== */
+@media screen and (min-width: 1200px) and (max-width: 1439px) {
+	#pf-section {
+		padding: 0px 4%;
+	}
+}
+
+/* ===== Laptop (992px – 1199px) ===== */
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+	#pf-section {
+		padding: 0px 0%;
+	}
+}
