@@ -1,3 +1,4 @@
+/*Make sure max-width of both PageFly and theme are 1500px*/
 @media screen and (min-width: 1440px) {
 	#pf-section {
 		padding: 0px 13%;
