@@ -17,15 +17,16 @@ function waitForElement(selector, callback, maxWait = 10000) {
 
 // Function to scroll to bundle
 function scrollToBundle() {
-  console.log('Attempting to scroll ...');
+  console.log('Attempting to scroll to bundle...');
   
   // Wait for bundle element if it doesn't exist yet
-  waitForElement('#_bndl_4fy2xdk1ojwh04', function(bundleElement) { // change target element id here
-    console.log('Content found, scrolling...');
+  waitForElement('#_bndl_4fy2xdk1ojwh04', function(bundleElement) { // target element id
+    console.log('Bundle element found, scrolling...');
     
     // Get element position
     const elementPosition = bundleElement.getBoundingClientRect().top;
-    const offsetPosition = elementPosition + window.pageYOffset - 0; // Adjust this value     
+    const offsetPosition = elementPosition + window.pageYOffset - 100; // Adjust this value (100px offset from top)
+    
     window.scrollTo({
       top: offsetPosition,
       behavior: 'smooth'
@@ -56,9 +57,13 @@ function scrollToBundleAlternative() {
     const element = document.querySelector(selector);
     if (element) {
       console.log('Found element with selector:', selector);
-      element.scrollIntoView({
-        behavior: 'smooth',
-        block: 'center'
+      
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - 100;
+      
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
       });
       return;
     }
@@ -67,28 +72,57 @@ function scrollToBundleAlternative() {
   console.warn('No bundle element found with any selector');
 }
 
-// Function to attach event listener to button
-function attachScrollListener() {
-  waitForElement('#pfbutton', function(scrollButton) { // apply id for the button
-    console.log('Button found, attaching listener');
+// Function to attach event listeners to ALL buttons with class or ID
+function attachScrollListeners() {
+  // Wait a bit for PageFly to render elements
+  setTimeout(function() {
+    // Find ALL buttons - using both ID and class selectors
+    const buttons = document.querySelectorAll('#pfbutton, .pfbutton, [data-scroll-to-bundle]'); // button class and id name
     
-    scrollButton.addEventListener('click', function(e) {
-      console.log('Button clicked!');
-      e.preventDefault();
-      e.stopPropagation();
+    console.log('Found ' + buttons.length + ' scroll buttons');
+    
+    buttons.forEach(function(button, index) {
+      console.log('Attaching listener to button ' + (index + 1));
       
-      // Try main function first, then alternative
-      scrollToBundle();
+      // Remove existing listener if any
+      button.removeEventListener('click', handleButtonClick);
       
-      // If main doesn't work after 500ms, try alternative
-      setTimeout(scrollToBundleAlternative, 500);
+      // Add click listener
+      button.addEventListener('click', handleButtonClick);
     });
-  });
+    
+    // If no buttons found, try again with just ID
+    if (buttons.length === 0) {
+      const singleButton = document.getElementById('pfbutton');
+      if (singleButton) {
+        console.log('Found single button with ID');
+        singleButton.addEventListener('click', handleButtonClick);
+      }
+    }
+  }, 1000);
 }
 
-// Initialize
-attachScrollListener();
+// Separate handler function
+function handleButtonClick(e) {
+  console.log('Button clicked!');
+  e.preventDefault();
+  e.stopPropagation();
+  
+  scrollToBundle();
+  
+  // If main doesn't work after 500ms, try alternative
+  setTimeout(scrollToBundleAlternative, 500);
+}
+
+// Initialize on different events
+document.addEventListener('DOMContentLoaded', attachScrollListeners);
+window.addEventListener('load', attachScrollListeners);
+
+// Try again after delays for PageFly dynamic content
+setTimeout(attachScrollListeners, 2000);
+setTimeout(attachScrollListeners, 3000);
 
 // Expose functions globally
 window.scrollToBundle = scrollToBundle;
 window.scrollToBundleAlternative = scrollToBundleAlternative;
+window.attachScrollListeners = attachScrollListeners;
