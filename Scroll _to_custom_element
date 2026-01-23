@@ -1,0 +1,94 @@
+// Function to wait for an element to exist
+function waitForElement(selector, callback, maxWait = 10000) {
+  const startTime = Date.now();
+  
+  const checkElement = setInterval(function() {
+    const element = document.querySelector(selector);
+    
+    if (element) {
+      clearInterval(checkElement);
+      callback(element);
+    } else if (Date.now() - startTime > maxWait) {
+      clearInterval(checkElement);
+      console.warn('Element not found after waiting:', selector);
+    }
+  }, 100);
+}
+
+// Function to scroll to bundle
+function scrollToBundle() {
+  console.log('Attempting to scroll ...');
+  
+  // Wait for bundle element if it doesn't exist yet
+  waitForElement('#_bndl_4fy2xdk1ojwh04', function(bundleElement) { // change target element id here
+    console.log('Content found, scrolling...');
+    
+    // Get element position
+    const elementPosition = bundleElement.getBoundingClientRect().top;
+    const offsetPosition = elementPosition + window.pageYOffset - 0; // Adjust this value     
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: 'smooth'
+    });
+    
+    // Optional: Add highlight effect
+    bundleElement.style.transition = 'box-shadow 0.3s ease';
+    bundleElement.style.boxShadow = '0 0 20px rgba(181, 150, 119, 0.5)';
+    
+    setTimeout(function() {
+      bundleElement.style.boxShadow = '';
+    }, 2000);
+  });
+}
+
+// Alternative: Try searching for any bundler element if the specific ID doesn't work
+function scrollToBundleAlternative() {
+  console.log('Trying alternative bundle selectors...');
+  
+  const selectors = [
+    '#_bndl_4fy2xdk1ojwh04',
+    '.bndlr-volume',
+    '[data-bndlr-key="4fy2xdk1ojwh04"]',
+    '.bndlr-volume-title'
+  ];
+  
+  for (let selector of selectors) {
+    const element = document.querySelector(selector);
+    if (element) {
+      console.log('Found element with selector:', selector);
+      element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center'
+      });
+      return;
+    }
+  }
+  
+  console.warn('No bundle element found with any selector');
+}
+
+// Function to attach event listener to button
+function attachScrollListener() {
+  waitForElement('#pfbutton', function(scrollButton) { // apply id for the button
+    console.log('Button found, attaching listener');
+    
+    scrollButton.addEventListener('click', function(e) {
+      console.log('Button clicked!');
+      e.preventDefault();
+      e.stopPropagation();
+      
+      // Try main function first, then alternative
+      scrollToBundle();
+      
+      // If main doesn't work after 500ms, try alternative
+      setTimeout(scrollToBundleAlternative, 500);
+    });
+  });
+}
+
+// Initialize
+attachScrollListener();
+
+// Expose functions globally
+window.scrollToBundle = scrollToBundle;
+window.scrollToBundleAlternative = scrollToBundleAlternative;
